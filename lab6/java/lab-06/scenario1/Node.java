@@ -1,4 +1,7 @@
+package scenario1;
+
 import java.util.concurrent.BlockingQueue;
+
 
 public class Node implements Runnable {
     private final BlockingQueue<Task> taskQueue;
@@ -20,10 +23,11 @@ public class Node implements Runnable {
                 long endTime = System.currentTimeMillis();
                 long totalTime = endTime - startTime;
                 System.out.println("Node " + nodeName + " concluiu Task " + task.getId() + " em " + totalTime + "ms.");
-                task.setExecutionTime(totalTime); 
+                task.setExecutionTime(totalTime);
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
+
 }

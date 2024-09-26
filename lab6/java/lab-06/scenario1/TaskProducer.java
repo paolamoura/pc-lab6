@@ -1,3 +1,5 @@
+package scenario1;
+
 import java.util.concurrent.BlockingQueue;
 
 public class TaskProducer implements Runnable {
