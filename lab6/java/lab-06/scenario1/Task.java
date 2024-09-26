@@ -15,6 +15,10 @@ public class Task {
         return id;
     }
 
+    public String getProducerName(){
+        return this.producerName;
+    }
+
     public void setProducerName(String producerName) {
         this.producerName = producerName;
     }
@@ -23,12 +27,12 @@ public class Task {
         this.executionTime = executionTime;
     }
 
-    public void execute() {
-        try {
-            long execDuration = 1000 + (new Random().nextInt(14000)); 
-            Thread.sleep(execDuration);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+    public long getExecutionTime(){
+        return this.executionTime;
+    }
+
+    public void execute() throws InterruptedException {
+        long execDuration = 1000 + (new Random().nextInt(14000));
+        Thread.sleep(execDuration);
     }
 }
