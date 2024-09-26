@@ -1,4 +1,4 @@
-package lab6.java.scenario2;
+package scenario2;
 
 import java.util.concurrent.*;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public class Scenario2 {
                 int taskCount = taskCountPerProducer.getOrDefault(producer, 0);
                 if (taskCount > 0) {
                     long averageTime = totalTime / taskCount;
-                    System.out.println("Producer: " + producer + " | Média de tempo de execução: " + averageTime + "ms");
+                    System.out.printf("Média de tempo de execução pro producer '%s': '%s' ms%n", producer, averageTime);
                 }
             });
         }, 0, 5, TimeUnit.SECONDS);

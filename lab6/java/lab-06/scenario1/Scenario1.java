@@ -15,11 +15,13 @@ public class Scenario1 {
 
         for (int i = 1; i <= 5; i++) {
             TaskProducer producer = new TaskProducer(taskQueue, "Producer" + i);
+            System.out.println(producer);
             executorService.submit(producer);
         }
 
         for (int i = 1; i <= 3; i++) {
             Node node = new Node(taskQueue, "Node" + i);
+
             Future<Long> future = executorService.submit(node);
 
             Executors.newCachedThreadPool().submit(() -> {
@@ -44,7 +46,7 @@ public class Scenario1 {
                 int taskCount = taskCounterPerProducer.getOrDefault(producer, 0);
                 if (taskCount > 0){
                     long averageTime = totalTime / taskCount;
-                    System.out.println("Média de tempo de execução pro producer '%s': '%s' ms".formatted(producer, averageTime));
+                    System.out.printf("Média de tempo de execução pro producer '%s': '%s' ms%n", producer, averageTime);
                 }
             });
         }, 0, 5, TimeUnit.SECONDS);

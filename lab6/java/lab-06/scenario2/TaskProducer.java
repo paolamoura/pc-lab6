@@ -1,6 +1,7 @@
-package lab6.java.scenario2;
+package scenario2;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
 
 public class TaskProducer implements Callable<Void> {
     private final BlockingQueue<Task> taskQueue;
